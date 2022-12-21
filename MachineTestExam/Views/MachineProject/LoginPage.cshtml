@@ -1,0 +1,94 @@
+﻿@using MachineTestExam.Models
+@model LoginModel
+@{
+    Layout = null;
+}
+
+ 
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+</body>
+</html>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://www.markuptag.com/bootstrap/5/css/bootstrap.min.css">
+    <title></title>
+
+</head>
+<body>
+    <section class="vh-100 bg-image"
+             style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
+        <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+            <div class="container h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                        <div class="card" style="border-radius: 15px;">
+                            <div class="card-body p-5">
+                                <h2 class="text-uppercase text-center mb-5">LOGIN INTO YOUR ACCOUNT</h2>
+
+                                @using (Html.BeginForm())
+                                {
+                                    @Html.AntiForgeryToken()
+                                   @* <h4 class="mb-5 text-secondary">Create Your Account</h4>*@
+                                    <div class="row">
+                                        <div class="mb-3 col-md-8">
+                                            <label>UserName<span class="text-danger">*</span></label>
+                                            @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", placeholder="Enter UserName" })
+                                            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="mb-3 col-md-6">
+                                            <label>EmailId<span class="text-danger">*</span></label>
+                                            @Html.TextBoxFor(model => model.EmailId, new { @class = "form-control", placeholder="Enter EmailId " })
+                                            @Html.ValidationMessageFor(model => model.EmailId, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="mb-3 col-md-6">
+                                            <label>Branch<span class="text-danger">*</span></label>
+                                            @Html.DropDownListFor(model => model.Branch, new List<SelectListItem> {
+                                        new SelectListItem { Text="--Select--",Value="0"},
+                                        new SelectListItem { Text="Hyderabad",Value="Hyderabad"},
+                                        new SelectListItem { Text="kolkata ",Value="kolkata "},
+                                        new SelectListItem { Text="Bangalore",Value="Bangalore"},
+                                        new SelectListItem { Text="Delhi ",Value="Delhi "},
+
+                                        }, new { @class = "form-control" })
+                                        </div>
+                                       
+                                        <div class="mb-3 col-md-8">
+                                            <label>Password<span class="text-danger">*</span></label>
+                                            @Html.TextBoxFor(model => model.Password, new { @class = "form-control", placeholder="Enter Password" })
+                                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="col-md-7">
+                                            <p class="text-center mt-3 text-secondary">If you don't have account,  @Html.ActionLink("RegisterPage","RegisterPage","MachineProject")</p>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <p class="text-center mt-3 text-secondary">change password,  @Html.ActionLink("forget password","Forgetpassword","MachineProject")</p>
+                                        </div>
+                                       @* <div class="col-md-7">
+                                            <p class="text-center mt-3 text-secondary">Home,  @Html.ActionLink("Home","Home","STD")</p>
+                                        </div> <div class="col-md-5">*@
+                                            <input type="submit" class="btn btn-primary float-end" value="Submit">
+                                        </div>
+
+                                   
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+</body>
+</html>

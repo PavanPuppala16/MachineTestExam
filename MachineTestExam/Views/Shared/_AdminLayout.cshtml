@@ -1,0 +1,226 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewBag.Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+        }
+
+        .wrapper {
+            width: 1170px;
+            margin: auto;
+        }
+
+        header {
+            background: url("https://wallpapercave.com/wp/wp3537549.jpg");
+            height: 100vh;
+            -webkit-background-size: cover;
+            background-size: cover;
+            background-position: center center;
+            position: relative;
+        }
+
+        .nav-area {
+            float: right;
+            list-style: none;
+            margin-top: 30px;
+        }
+
+            .nav-area li {
+                display: inline-block;
+            }
+
+                .nav-area li a {
+                    color: black;
+                    text-decoration: none;
+                    padding: 5px 20px;
+                    font-family: poppins;
+                    font-size: 16px;
+                    font-color: blue;
+                    text-transform: uppercase;
+                }
+
+                    .nav-area li a:hover {
+                        background: black;
+                        color: black;
+                    }
+
+        .logo {
+            float: left;
+        }
+
+            .logo img {
+                width: 75px;
+                height: 75px;
+                padding: 15px 0;
+            }
+
+        .welcome-text {
+            position: absolute;
+            width: 600px;
+            height: 300px;
+            margin: 20% 30%;
+            text-align: center;
+        }
+
+            .welcome-text h1 {
+                text-align: center;
+                color: #fff;
+                text-transform: uppercase;
+                font-size: 60px;
+                font-color: blue;
+            }
+
+            .welcome-text a {
+                border: 1px solid black;
+                padding: 10px 25px;
+                text-decoration: none;
+                text-transform: uppercase;
+                font-size: 14px;
+                font-color: blue;
+                margin-top: 20px;
+                display: inline-block;
+                color: black;
+            }
+
+                .welcome-text a:hover {
+                    background: black;
+                    color: black;
+                }
+
+        /*resposive*/
+
+        media (max-width:600px) {
+            .wrapper
+
+        {
+            width: 100%;
+        }
+
+        .logo {
+            float: none;
+            width: 50%;
+            text-align: center;
+            margin: auto;
+        }
+
+        img {
+            width:;
+        }
+
+        .nav-area {
+            float: none;
+            margin-top: 0;
+        }
+
+            .nav-area li a {
+                padding: 5px;
+                font-size: 11px;
+            }
+
+        .nav-area {
+            text-align: center;
+        }
+
+        .welcome-text {
+            width: 100%;
+            height: auto;
+            margin: 30% 0;
+        }
+
+            .welcome-text h1 {
+                font-size: 30px;
+            }
+
+        }
+
+        form.nosubmit {
+            border: none;
+            padding: 0;
+        }
+
+        input.nosubmit {
+            width: 260px;
+            border: 1px solid #fff;
+            display: block;
+            padding: 9px 4px 9px 40px;
+            background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat 13px center;
+        }
+
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body background-image:url("https: //wallpapercave.com/wp/wp3537549.jpg")>
+    <marquee direction="left" ">
+        This is a sample scrolling text that has scrolls in the upper direction.
+    </marquee>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+
+            <div class="logo">
+                <img src="https://wallpapercave.com/wp/wp3537549.jpg" alt="">
+            </div>
+
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse" style="font-color:white">
+                <div class="navbar-nav">
+                    <a href="#" class="nav-item nav-link active" style="font-color: blue">Home</a>
+                    <a href="RegisterPage" class="nav-item nav-link"> </a>
+                @Html.ActionLink("Registration","RegisterPage","MachineProject", null,
+                    new { @class="nav-item nav-link active" });
+                @Html.ActionLink("Display","DiaplayData","MachineProject", null,
+                    new { @class="nav-item nav-link active" });
+                @Html.ActionLink("Photo","Upload","File", null,
+                    new { @class="nav-item nav-link active" });
+                @Html.ActionLink("Payment","Index","Payment", null,
+                    new { @class="nav-item nav-link active" });
+                @Html.ActionLink("PaymentDisplay","DiaplayPayment","Payment", null,
+                    new { @class="nav-item nav-link active" });
+                @Html.ActionLink("SearchByID","GetDataonDDL","SelectID", null,
+                    new { @class="nav-item nav-link active" });
+
+
+
+
+                </div>
+                <div class="navbar-nav ms-auto" class="nosubmit">
+                    <input class="nosubmit" type="search" placeholder="Search...">
+                @Html.ActionLink("Login","LoginPage","MachineProject", null,
+                    new { @class="nav-item nav-link active" });
+                @Html.ActionLink("Logout","Logout","MachineProject", null,
+                    new { @class="nav-item nav-link active" });
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div>
+            @RenderBody()
+    </div>
+    <footer>
+        <div class="row">
+            <div class="col-md-6 text-md-end">
+            </div>
+        </div>
+
+
+
+
+
+
+    </footer>
+
+
+</body>
+</html>

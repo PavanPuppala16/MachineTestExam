@@ -1,0 +1,173 @@
+﻿@using MachineTestExam.Models;
+
+@{
+    ViewData["Title"] = "GetDataonDDL";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+@using (Html.BeginForm())
+{
+    if (ViewData["Val"] == null)
+    {
+        @Html.DropDownList("test", new SelectList(ViewBag.data, "UserId", "UserId"), "Please select", new { @id = "ddlFruits" })
+        <input type="submit" value="submit" />
+    }
+    else
+    {
+        @Html.DropDownList("test", new SelectList(ViewBag.data, "UserId", "UserId"), "Please select", new { @id = "ddlFruits" })
+        <input type="submit" value="submit" />
+        <table class="table table-striped">
+            <tr>
+                <th>UserId</th>
+                <th>UserName</th>
+                <th>EmailId </th>
+                <th>Password </th>
+                <th>Branch </th>
+                <th>PhoneNo </th>
+                <th>IDProof</th>
+                <th>IDno</th>
+                <th>NoID</th>
+                <th>JoiningDate</th>
+                <th>CalculateDate</th>
+               
+            </tr>
+            @foreach (var item in ViewData["Val"] as List<MachineTestExam.Models.Registration>)
+            {
+                <tr>
+                    <td>@item.UserId</td>
+                    <td>@item.UserName</td>
+                    <td>@item.EmailId</td>
+                    <td>@item.Password</td>
+                    <td>@item.Branch</td>
+                    <td>@item.PhoneNo</td>
+                    <td>@item.IDProof</td>
+                    <td>@item.IDno</td>
+                    <td>@item.NoID</td>
+                    <td>@item.JoiningDate</td>
+                    <td>@item.CalculateDate</td>
+                   
+                </tr>
+            }
+        </table>
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmailId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Branch)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IDProof)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IDno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JoiningDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CalculateDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Branch)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDProof)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JoiningDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CalculateDate)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>*@

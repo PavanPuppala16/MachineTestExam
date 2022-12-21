@@ -1,0 +1,74 @@
+﻿@model IEnumerable<MachineTestExam.Models.UploadModel>
+@addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Upload";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Upload</title>
+</head>
+<body>
+</body>
+</html>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Upload</title>
+    <style>
+        table, td, th {
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    @using (Html.BeginForm("Upload", "File", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+
+        <span>Select File:</span>
+        <input type="file" name="PostedFiles" multiple />
+        <input type="submit" value="Upload" />
+
+        <hr />
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+                <th>Name</th>
+                <th>DownloadAction</th>
+                <th>DeleteAction</th>
+                <th></th>
+            </tr>
+            @foreach (UploadModel File in Model)
+            {
+                <tr>
+                    <td>@File.Name</td>
+                    <td><a href="@Url.Action("DownloadFile","File", new { fileId = File.ID })">Download</a></td>
+                    <td><a href="@Url.Action("Delete","File", new { fileId = File.ID })">Delete</a></td>
+
+                </tr>
+
+            }
+
+        </table>
+    }
+</body>
+</html>
+

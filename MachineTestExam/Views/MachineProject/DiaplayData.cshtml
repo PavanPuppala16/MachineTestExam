@@ -1,0 +1,134 @@
+﻿@model IEnumerable<MachineTestExam.Models.Registration>
+
+@{
+    ViewData["Title"] = "PhotoUpload";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="Revamp/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="Revamp/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="Revamp/js/dataTables.bootstrap4.min.js"></script>
+    <style>
+        table, th, td {
+            border: 1px solid white;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            background-color: #96D4D4;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        <a asp-action="RegisterPage">Create New</a>
+    </p>
+    <section class="text-black">
+        <div class="container-fluid">
+            <div class="grid-container">
+                <div class="row">
+                    <div class="caption col-sm-7">
+                      @*  <h6 class="page-title">DEPARTMENT'S DATA</h6>*@
+                        <asp:Label ID="lbl_error" runat="server" Text="Label" Visible="False" ForeColor="Red"></asp:Label>
+                    </div>
+                  
+                </div>
+                <hr />
+                <table class="table table-bordered table-striped dtables" style="width: 100%" id="fieldSetupGrid">
+                    <thead>
+
+
+   
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmailId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Branch)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IDProof)
+            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.IDno)
+                            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JoiningDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CalculateDate)
+            </th>
+                            <th>
+                                Action
+                            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Branch)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDProof)
+            </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.IDno)
+                                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JoiningDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CalculateDate)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Update", new {  id=item.UserId  }) |
+                        @Html.ActionLink("Details", "Details",new {  id=item.UserId  })  |
+                        @Html.ActionLink("Delete", "Delete", new {  id=item.UserId  })
+                    </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>
